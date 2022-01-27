@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Evulpo Exercise Test</title>
+    <meta
+      name="description"
+      content="exercise test full stack developer interview"
+    />
+    <meta
+      name="keywords"
+      content="single-choice exercise basic-data-connection"
+    />
+    <script src="main.js" type="text/javascript"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <audio id="correct-audio">
+      <source src="./assets/correct.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="wrong-audio">
+      <source src="./assets/wrong.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <div id="loading">
+      <img src="./assets/loading.gif" alt="" width="150px" />
+    </div>
+    <div id="main-wrapper">
+      <div id="question-wrapper">
+        <div>Question</div>
+        <div id="question">Which is the correct option?</div>
+      </div>
+      <div id="options-wrapper"></div>
+
+      <!-- Check Button -->
+      <div class="button-wrapper">
+        <button id="check-btn" onclick="checkAnswer()">Check</button>
+        <button id="next-btn" onclick="nextQuestion()">Next</button>
+        <button id="reset-btn" onclick="reset()">Reset</button>
+      </div>
+      <div id="result"></div>
+    </div>
+    <script
+      async
+      defer
+      src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()"
+    ></script>
+  </body>
+</html>
