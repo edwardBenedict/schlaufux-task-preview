@@ -12,6 +12,7 @@ const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
 /**
  * Define variables for algorithm.
  */
+let states = [];
 let options = ["this", "this not", "this either"];
 let correctAnswerIndex;
 let selectedAnswerIndex;
@@ -176,6 +177,7 @@ async function checkAnswer() {
     nextBtn.style.display = "block";
     checktBtn.style.display = "none";
     correctAudio.play();
+    states = [...states, true];
   } else if (selectedAnswerIndex != correctAnswerIndex) {
     /**
      * Check if the user answer is wrong, if it is, show the error message.
@@ -184,6 +186,19 @@ async function checkAnswer() {
     nextBtn.style.display = "block";
     checktBtn.style.display = "none";
     wrongAudio.play();
+    states = [...states, false];
+  }
+
+  for (let i = 0; i < states.length; i++) {
+    if (states[i] === true) {
+      let bar = document.querySelector(`#bar-${i + 1}`);
+      bar.style.backgroundColor = "green";
+      bar.style.color = "white";
+    } else if (states[i] === false) {
+      let bar = document.querySelector(`#bar-${i + 1}`);
+      bar.style.backgroundColor = "red";
+      bar.style.color = "white";
+    }
   }
 
   /**
